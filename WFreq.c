@@ -200,8 +200,8 @@ int main() {
 	FILE *of;
 	
 	if (!(of = fopen("text.txt", "rb"))) {
-		printf("Can't open file!");
-		return 0;
+		printf("Can't open file!\n");
+		goto exit;
 	}
 
 	fseek(of, 0, SEEK_END);
@@ -238,6 +238,7 @@ int main() {
 			case ')':
 			case '"':
 			case ' ':
+			case '\n':
 				if (strfs == strfe)
 					strfs = ++strfe;
 				else {
@@ -266,6 +267,5 @@ int main() {
 
 	free(fbytes);
 
-	system("pause");
-	return 0;
-}
+exit:;
+	syste
